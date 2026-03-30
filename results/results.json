@@ -1,0 +1,30 @@
+{
+  "text_only": {
+    "auroc": 0.6354479999999999,
+    "accuracy": 0.6
+  },
+  "image_only": {
+    "auroc": 0.65488,
+    "accuracy": 0.592
+  },
+  "concat": {
+    "auroc": 0.705936,
+    "accuracy": 0.636
+  },
+  "scalar_gate": {
+    "auroc": 0.7094400000000001,
+    "accuracy": 0.628
+  },
+  "scalar_gate_interaction": {
+    "auroc": 0.708912,
+    "accuracy": 0.616
+  },
+  "vector_gate_interaction": {
+    "auroc": 0.711488,
+    "accuracy": 0.64
+  },
+  "finetuned_vector_gate_interaction": {
+    "auroc": 0.72712,
+    "accuracy": 0.656
+  }
+}
