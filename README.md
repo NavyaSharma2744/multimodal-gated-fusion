@@ -65,15 +65,50 @@ Output:     classifier(h_fused) -> hateful/not
 
 ## Reproducing
 
-```bash
-# Install dependencies
-uv sync
 
-# Extract CLIP features (run notebook or)
-uv run python train.py           # trains models 1-6
-uv run python train_finetuned.py # trains model 7
-uv run python evaluate.py        # generates analysis plots
+```bash
+# setup
+cd multimodal-gated-fusion
+uv init  # if not already done
+uv add torch torchvision transformers datasets scikit-learn matplotlib pillow tqdm jupyter
+```
+
+## 2. Get the Dataset
+
+Download from Kaggle: https://www.kaggle.com/datasets/parthplc/facebook-hateful-meme-dataset
+
+```bash
+# option A: kaggle CLI
+uv add kaggle
+kaggle datasets download -d parthplc/facebook-hateful-meme-dataset
+unzip facebook-hateful-meme-dataset.zip -d data/
+
+# option B: manual download from kaggle website, unzip into data/
+```
+
+After this you should have:
+```
+data/
+├── img/          # ~10,000 png files
+├── train.jsonl   # 8500 samples
+├── dev.jsonl     # 500 samples
+└── test.jsonl    # 1000 samples (no labels)
+```
+
+# feature extraction (run the notebook)
+uv run jupyter notebook  # run notebooks/feature_extraction.ipynb
+
+# train everything
+uv run python train.py
+uv run python train_finetuned.py
+
+# analyze everything
+uv run python evaluate.py
 uv run python analyze_finetuned.py
+
+# check results
+cat results/results.json
+ls analysis/
 ```
 
 ## References
