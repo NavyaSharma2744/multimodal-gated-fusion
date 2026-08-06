@@ -12,7 +12,7 @@ When fusing image and text for hate detection in memes, does a model that learns
 
 ## Approach
 
-CLIP (ViT-B/32) encodes images and text into 512-d vectors. We test 7 fusion strategies:
+CLIP (ViT-B/32) encodes images and text into 512-d vectors. I tested 7 fusion strategies:
 
 | # | Model | AUROC |
 |---|-------|-------|
